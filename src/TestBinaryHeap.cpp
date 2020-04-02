@@ -7,7 +7,14 @@ using namespace std;
     // Test program
 int main( )
 {
-    int minItem = 10000;  // same number of digits
+
+    BinaryHeap<int> num;
+    num.insert(99);
+    num.insert(56);
+    num.insert(34);
+    num.insert(45);
+    cout << num.findMin();
+/*    int minItem = 10000;  // same number of digits
     int maxItem = 99999;
     BinaryHeap<string> h;
     string str = "hello";
@@ -40,6 +47,7 @@ int main( )
 
 
 
-    cout << "End test... no other output is good" << endl;
+    cout << "End test... no other output is good" << endl;*/
     return 0;
+
 }
