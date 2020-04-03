@@ -84,6 +84,7 @@ int Board_Tile::Manhattan_Distance(const Board_Tile& goalconfig) {
         }
     }
     //std::cout << "EC:\t\t" << EC << std::endl;
+    DC = AC + EC;
     return EC;
 }
 
@@ -105,7 +106,7 @@ int Board_Tile::getEC() {
     return EC;
 }
 int Board_Tile::getDC() {
-    return AC + EC;
+    return DC;
 }
 
 

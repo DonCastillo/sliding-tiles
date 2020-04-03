@@ -14,7 +14,7 @@ class Board_Tile
 
     //  number of moves from the intitial configuration
     // to the current configuration
-    int AC;
+    int AC = 0;
 
     // estimated number of moves needed to reach
     // the goal configuration as determined by the Manhattan Distance
@@ -32,7 +32,7 @@ class Board_Tile
 
         // pass the initial configuration of the tile board
         Board_Tile() {}
-        Board_Tile(const std::string& pConfig, const std::string& pMoves, const int pAC);
+        Board_Tile(const std::string& pConfig, const std::string& pMoves = "", const int pAC = 0);
 
         virtual ~Board_Tile();
 
