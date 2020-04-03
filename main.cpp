@@ -1,7 +1,8 @@
 #include <iostream>
+
 #include "Sliding_Solver.h"
 #include "BinaryHeap.h"
-#include <iostream>
+
 
 
 int main()
@@ -11,24 +12,27 @@ int main()
     Sliding_Solver solver(initConfig, goalConfig);
 
     // initial board
-    Board_Tile board("123405678", "", 0);
+    Board_Tile board("123045786", "", 0);
 
     // goal board
     Board_Tile goal("123456780", "", 0);
     std::cout << board.getConfig() << std::endl;
-    //std::cout << board.nextConfigs().size() << std::endl;
-    for (Board_Tile b : board.nextConfigs()) {
+    /*for (Board_Tile b : board.nextConfigs()) {
         std::cout << "---" << std::endl;
         std::cout << "current: " << b.getConfig() << std::endl;
         std::cout << "AC: " << b.getAC() << std::endl;
         std::cout << "MovesFromStart: " << b.getMovesFromStart() << std::endl;
 
-        //b.getConfig();
-    }
+        for (Board_Tile c : b.nextConfigs())
+        {
+            std::cout << "---" << std::endl;
+            std::cout << "current: " << c.getConfig() << std::endl;
+            std::cout << "AC: " << c.getAC() << std::endl;
+            std::cout << "MovesFromStart: " << c.getMovesFromStart() << std::endl;
+        }
+    }*/
     board.Manhattan_Distance(goal);
-    //board.getConfig();
-    //std::cout << board.getIndexOfZero() << std::endl;
-    //std::cout << std::boolalpha << board.canMoveTo('U');
+
     return 0;
 }
 

@@ -1,5 +1,4 @@
 #include "Board_Tile.h"
-#include <string>
 
 Board_Tile::Board_Tile(const std::string& pConfig,
                        const std::string& pMoves,
@@ -55,19 +54,45 @@ std::vector<Board_Tile> Board_Tile::nextConfigs() {
 }
 
 
-
+// Manhattan distance = | x2 - x1 | + | y2 - y1 |
 int Board_Tile::Manhattan_Distance(const Board_Tile& goalconfig) {
-    /*std::string goalConfig = goalconfig.getConfig();
-    std::string currentConfig = getConfig();
 
-    for (int i = 0; i < goalConfig.length(); ++i) {
-        for (int j = i; j < currentConfig.length(); ++j) {
+    std::string goalConfig = goalconfig.getConfig();
+    std::string currentConfig = config;
+    int EC = 0;
 
+    std::cout << "Curr config: " << currentConfig << std::endl;
+    std::cout << "Goal config: " << goalConfig << std::endl;
+    for (int i = 0; i < currentConfig.length(); ++i) {
+        for (int j = 0; j < goalConfig.length(); ++j) {
+
+            if ( (currentConfig[i] == goalConfig[j]) && (currentConfig[i] != '0') ) {
+
+                // goal coordinate
+                int x2 = getXCoordinate(j);
+                int y2 = getYCoordinate(j);
+
+                // current coordinate
+                int x1 = getXCoordinate(i);
+                int y1 = getYCoordinate(i);
+                std::cout << "current:\t" << x1 << " " << y1 << std::endl;
+                std::cout << "goal:\t\t" << x2 << " " << y2 << std::endl;
+                EC += ( abs(x2 - x1) + abs(y2 - y1) );
+            }
         }
-    }*/
+    }
+    std::cout << "EC:\t\t" << EC << std::endl;
 }
 
-std::string Board_Tile::getConfig() {
+int Board_Tile::getXCoordinate(int index) {
+    return index / 3;
+}
+
+int Board_Tile::getYCoordinate(int index) {
+    return index % 3;
+}
+
+std::string Board_Tile::getConfig() const{
     return config;
 }
 int Board_Tile::getAC() {
@@ -79,6 +104,8 @@ int Board_Tile::getEC() {
 int Board_Tile::getDC() {
     return DC;
 }
+
+
 
 
 bool Board_Tile::canMoveTo(const char direction) {

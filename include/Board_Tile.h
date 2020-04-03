@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cctype>
 #include <algorithm>
+#include <cmath>
 
 class Board_Tile
 {
@@ -42,7 +43,7 @@ class Board_Tile
         */
         int Manhattan_Distance(const Board_Tile& goalconfig);
 
-        std::string getConfig();
+        std::string getConfig() const;
         int getAC();
         int getEC();
         int getDC();
@@ -51,6 +52,8 @@ class Board_Tile
         bool canMoveTo(const char direction);
         void printBoard();
         std::string getMovesFromStart();
+        int getXCoordinate(int index);
+        int getYCoordinate(int index);
 };
 
 #endif // BOARD_TILE_H
