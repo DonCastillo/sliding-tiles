@@ -10,10 +10,10 @@ class Sliding_Solver
     BinaryHeap<Board_Tile> tileQueue;
 
     // initial configuration
-    std::string initConfig;
+    Board_Tile initBoard;
 
     // goal configuration
-    std::string goalConfig;
+    Board_Tile goalBoard;
 
     public:
         Sliding_Solver(const std::string& pInitConfig, const std::string& pGoalConfig);

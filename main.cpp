@@ -8,7 +8,7 @@
 int main()
 {
     std::string initConfig = "120453786";
-    std::string goalConfig = "123450786";
+    std::string goalConfig = "123456780";
     Sliding_Solver solver(initConfig, goalConfig);
     solver.Solve_Puzzle();
 
@@ -44,5 +44,3 @@ int main()
 
     return 0;
 }
-
-

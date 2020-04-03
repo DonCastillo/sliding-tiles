@@ -63,6 +63,12 @@ class Board_Tile
         std::string getMovesFromStart();
         int getXCoordinate(int index);
         int getYCoordinate(int index);
+        bool operator==(const Board_Tile& b) const;
+        bool operator!=(const Board_Tile& b) const;
+        bool operator> (const Board_Tile& b) const;
+        bool operator< (const Board_Tile& b) const;
+        bool operator>= (const Board_Tile& b) const;
+        bool operator<= (const Board_Tile& b) const;
 };
 
 #endif // BOARD_TILE_H

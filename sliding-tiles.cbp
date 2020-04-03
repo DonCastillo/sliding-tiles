@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +34,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/BinaryHeap.h" />
+		<Unit filename="include/Board_Tile.h" />
+		<Unit filename="include/Sliding_Solver.h" />
+		<Unit filename="include/dsexceptions.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Board_Tile.cpp" />
+		<Unit filename="src/Sliding_Solver.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

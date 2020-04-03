@@ -84,6 +84,7 @@ int Board_Tile::Manhattan_Distance(const Board_Tile& goalconfig) {
         }
     }
     //std::cout << "EC:\t\t" << EC << std::endl;
+    return EC;
 }
 
 int Board_Tile::getXCoordinate(int index) {
@@ -180,3 +181,29 @@ int Board_Tile::getIndexOfZero() {
 std::string Board_Tile::getMovesFromStart(){
     return movesFromStart;
 }
+
+// OPERATORS
+bool Board_Tile::operator==(const Board_Tile& b) const{
+    return (this->DC == b.DC);
+}
+
+bool Board_Tile::operator!=(const Board_Tile& b) const{
+    return (this->DC != b.DC);
+}
+
+bool Board_Tile::operator> (const Board_Tile& b) const{
+    return (this->DC > b.DC);
+}
+
+bool Board_Tile::operator< (const Board_Tile& b) const{
+    return (this->DC < b.DC);
+}
+
+bool Board_Tile::operator>= (const Board_Tile& b) const{
+    return (this->DC >= b.DC);
+}
+
+bool Board_Tile::operator<= (const Board_Tile& b) const{
+    return (this->DC <= b.DC);
+}
+
