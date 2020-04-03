@@ -10,13 +10,13 @@ class Sliding_Solver
     BinaryHeap<Board_Tile*> tileQueue;
 
     // initial configuration
-    std::string initialConfig;
+    std::string initConfig;
 
     // goal configuration
     std::string goalConfig;
 
     public:
-        explicit Sliding_Solver();
+        Sliding_Solver(const std::string& pInitConfig, const std::string& pGoalConfig);
         virtual ~Sliding_Solver();
         void Solve_Puzzle();
 };
