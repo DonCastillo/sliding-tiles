@@ -7,10 +7,10 @@
 
 int main()
 {
-    //std::string initConfig = "120453786";
-    //std::string goalConfig = "123450786";
-    //Sliding_Solver solver(initConfig, goalConfig);
-    //solver.Solve_Puzzle();
+    std::string initConfig = "120453786";
+    std::string goalConfig = "123450786";
+    Sliding_Solver solver(initConfig, goalConfig);
+    solver.Solve_Puzzle();
 
    /* // initial board
     Board_Tile board("123045786", "", 0);

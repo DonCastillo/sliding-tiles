@@ -15,5 +15,5 @@ Sliding_Solver::~Sliding_Solver()
 
 void Sliding_Solver::Solve_Puzzle()
 {
-
+    std::cout << "Hello";
 }

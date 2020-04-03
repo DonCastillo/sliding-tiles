@@ -7,7 +7,7 @@
 class Sliding_Solver
 {
     // minHeap of the Board_Tile objects
-    BinaryHeap<Board_Tile*> tileQueue;
+    BinaryHeap<Board_Tile> tileQueue;
 
     // initial configuration
     std::string initConfig;

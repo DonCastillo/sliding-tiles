@@ -31,6 +31,7 @@ class Board_Tile
     public:
 
         // pass the initial configuration of the tile board
+        Board_Tile() {}
         Board_Tile(const std::string& pConfig, const std::string& pMoves, const int pAC);
 
         virtual ~Board_Tile();
