@@ -11,8 +11,16 @@ class Board_Tile
 {
     // 3 X 3 tile board current configuration
     std::string config;
+
+    //  number of moves from the intitial configuration
+    // to the current configuration
     int AC;
+
+    // estimated number of moves needed to reach
+    // the goal configuration as determined by the Manhattan Distance
     int EC;
+
+    //
     int DC;
 
     // moves or steps that led to config from a given start configuration
