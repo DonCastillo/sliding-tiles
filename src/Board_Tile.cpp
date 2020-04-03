@@ -1,8 +1,12 @@
 #include "Board_Tile.h"
 #include <string>
 
-Board_Tile::Board_Tile(const std::string& pConfig) {
+Board_Tile::Board_Tile(const std::string& pConfig,
+                       const std::string& pMoves,
+                       const int pAC) {
     config = pConfig;
+    movesFromStart = pMoves;
+    AC = pAC;
 }
 
 Board_Tile::~Board_Tile() {}
@@ -15,40 +19,52 @@ std::vector<Board_Tile> Board_Tile::nextConfigs() {
     // get 0 index
     int indexOfZero = getIndexOfZero();
 
+
     // move up
     if (canMoveTo('U')) {
-        std::swap( config[indexOfZero], config[indexOfZero - 3]);
-        std::cout << "Up: " << config << std::endl;
+        std::string newConfig = config;
+        std::swap( newConfig[indexOfZero], newConfig[indexOfZero - 3]);
+        Board_Tile board(newConfig, movesFromStart+'U', AC+1);
+        temp.push_back(board);
     }
 
     // move down
     if (canMoveTo('D')) {
-        std::swap( config[indexOfZero], config[indexOfZero + 3]);
-        std::cout << "Down: " << config << std::endl;
+        std::string newConfig = config;
+        std::swap( newConfig[indexOfZero], newConfig[indexOfZero + 3]);
+        Board_Tile board(newConfig, movesFromStart+'D', AC+1);
+        temp.push_back(board);
     }
 
     // move left
     if (canMoveTo('L')) {
-        std::swap( config[indexOfZero], config[indexOfZero - 1]);
-        std::cout << "Left: " << config << std::endl;
+        std::string newConfig = config;
+        std::swap( newConfig[indexOfZero], newConfig[indexOfZero - 1]);
+        Board_Tile board(newConfig, movesFromStart+'L', AC+1);
+        temp.push_back(board);
     }
 
     // move right
     if (canMoveTo('R')) {
-        std::swap( config[indexOfZero], config[indexOfZero + 1]);
-        std::cout << "Right: " << config << std::endl;
+        std::string newConfig = config;
+        std::swap( newConfig[indexOfZero], newConfig[indexOfZero + 1]);
+        Board_Tile board(newConfig, movesFromStart+'R', AC+1);
+        temp.push_back(board);
     }
     return temp;
 }
 
 
 
-int Board_Tile::numMoves() {
-
-}
-
 int Board_Tile::Manhattan_Distance(const Board_Tile& goalconfig) {
+    /*std::string goalConfig = goalconfig.getConfig();
+    std::string currentConfig = getConfig();
 
+    for (int i = 0; i < goalConfig.length(); ++i) {
+        for (int j = i; j < currentConfig.length(); ++j) {
+
+        }
+    }*/
 }
 
 std::string Board_Tile::getConfig() {
@@ -112,7 +128,9 @@ bool Board_Tile::canMoveTo(const char direction) {
 
 
 
-
+int Board_Tile::numMoves() {
+    return movesFromStart.length();
+}
 
 
 char Board_Tile::getLastMove(){
@@ -128,4 +146,8 @@ int Board_Tile::getIndexOfZero() {
         }
     }
     return -1;
+}
+
+std::string Board_Tile::getMovesFromStart(){
+    return movesFromStart;
 }

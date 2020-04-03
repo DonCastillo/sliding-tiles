@@ -10,7 +10,6 @@ class Board_Tile
 {
     // 3 X 3 tile board current configuration
     std::string config;
-    std::string prevConfig;
     int AC;
     int EC;
     int DC;
@@ -23,7 +22,7 @@ class Board_Tile
     public:
 
         // pass the initial configuration of the tile board
-        Board_Tile(const std::string&);
+        Board_Tile(const std::string& pConfig, const std::string& pMoves, const int pAC);
 
         virtual ~Board_Tile();
 
@@ -50,6 +49,8 @@ class Board_Tile
         int getIndexOfZero();
         char getLastMove();
         bool canMoveTo(const char direction);
+        void printBoard();
+        std::string getMovesFromStart();
 };
 
 #endif // BOARD_TILE_H
