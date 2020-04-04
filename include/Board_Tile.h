@@ -1,3 +1,9 @@
+
+/** @author Don Castillo
+ *  @brief  Header of the Board_Tile class
+ *
+ */
+
 #ifndef BOARD_TILE_H
 #define BOARD_TILE_H
 #include <string>
@@ -12,57 +18,96 @@ class Board_Tile
     // 3 X 3 tile board current configuration
     std::string config;
 
-    //  number of moves from the intitial configuration
-    // to the current configuration
+    // number of moves from the intitial configuration to the current configuration
     int AC = 0;
 
     // estimated number of moves needed to reach
     // the goal configuration as determined by the Manhattan Distance
     int EC;
 
-    //
+    // DC = AC + EC
+    // Sum of Manhattan Distance and the number of moves from the
+    // initial configuration to the current configuration
     int DC;
 
-    // moves or steps that led to config from a given start configuration
-    // previous configuration before the current configuration
-    // e.g. URRD
+    // moves or steps that led to the current configuration
+    // from a given start configuration e.g. URRD
     std::string movesFromStart = "";
 
     public:
 
-        // pass the initial configuration of the tile board
         Board_Tile() {}
+
+        /** @brief  constructor of Board_Tile object
+         *  @param  pConfig     current configuration
+         *          pMoves      cumulative moves from the initial configuration
+         *          AC          distance of current configuration from the initial
+         */
         Board_Tile(const std::string& pConfig, const std::string& pMoves = "", const int pAC = 0);
 
         virtual ~Board_Tile();
 
-        // list of Board_Tile at most 4 objects that are one move away from the current object
-        // returns at most 4 Board_Tile that has different configurations of current board config
+
+        /** @brief  returns at most 4 Board_Tile objects that have different
+         *          configurations of the current board configuration
+         */
         std::vector<Board_Tile> nextConfigs();
 
-        // number of moves it took from the initial board to reach the current configuration
-        int numMoves();
-
-        // takes a Board_Tile object goalconfig representing the goal configuration
-        // and returns the value of the Manhattan distance of the object
-        /*
-            AC = (number of moves from the initial config to curent config)
-            EC = (estimated number of moves from the current config to goal config)
-            Manhattan Distance (MD) = AC + EC
-        */
+        /**
+         *  @brief  takes a Board_Tile object goalconfig representing the goal configuration
+         *          and returns the value of the Manhattan distance of the object
+         *  @param  goalconfig  goal board
+         */
         int Manhattan_Distance(const Board_Tile& goalconfig);
 
-        std::string getConfig() const;
-        int getAC();
-        int getEC();
-        int getDC();
-        int getIndexOfZero();
-        char getLastMove();
+        /** @brief  determine if '0' can be moved UP, DOWN, RIGHT, LEFT
+         */
         bool canMoveTo(const char direction);
-        void printBoard();
+
+
+
+        /**********************
+            @brief  Getters
+        ************************/
+
+        // returns the current configuration of the board in string
+        std::string getConfig() const;
+
+        // returns AC
+        int getAC();
+
+        // returns EC
+        int getEC();
+
+        // returns DC
+        int getDC();
+
+        // returns index of '0' in the configuration
+        int getIndexOfZero();
+
+        // returns last previous move
+        char getLastMove();
+
+        // number of moves it took from the initial board to
+        // reach the current configuration
+        int numMoves();
+
+        // returns movesFromStart
         std::string getMovesFromStart();
+
+        // returns X, Y coordinates of a character in the board
+        /*      00  01  02
+                10  11  12
+                20  21  22
+        */
         int getXCoordinate(int index);
         int getYCoordinate(int index);
+
+
+        /**********************
+            @brief  Operators, to be used in the
+                    Binary Heap Class
+        ************************/
         bool operator==(const Board_Tile& b) const;
         bool operator!=(const Board_Tile& b) const;
         bool operator> (const Board_Tile& b) const;

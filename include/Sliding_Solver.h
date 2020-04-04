@@ -1,3 +1,9 @@
+
+/** @author Don Castillo
+ *  @brief  Header of the Board_Tile class
+ *
+ */
+
 #ifndef SLIDING_SOLVER_H
 #define SLIDING_SOLVER_H
 #include "BinaryHeap.h"
@@ -16,7 +22,12 @@ class Sliding_Solver
     Board_Tile goalBoard;
 
     public:
-        Sliding_Solver(const std::string& pInitConfig, const std::string& pGoalConfig);
+        /** @brief  constructor of Sliding_Solver object
+         *  @param  pInitConfig initial configuration
+         *          pGoalConfig goal configuration
+         */
+        Sliding_Solver(const std::string& pInitConfig,
+                       const std::string& pGoalConfig);
         virtual ~Sliding_Solver();
         void Solve_Puzzle();
 };
