@@ -61,6 +61,7 @@ class Board_Tile
         int Manhattan_Distance(const Board_Tile& goalconfig);
 
         /** @brief  determine if '0' can be moved UP, DOWN, RIGHT, LEFT
+            @param  U, D, R, L
          */
         bool canMoveTo(const char direction);
 

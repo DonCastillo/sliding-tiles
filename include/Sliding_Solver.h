@@ -30,6 +30,7 @@ class Sliding_Solver
                        const std::string& pGoalConfig);
         virtual ~Sliding_Solver();
         void Solve_Puzzle();
+        static bool validateConfig(const std::string& config);
 };
 
 #endif // SLIDING_SOLVER_H

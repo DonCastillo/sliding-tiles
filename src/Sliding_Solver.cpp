@@ -1,5 +1,8 @@
 #include "Sliding_Solver.h"
 #include <string>
+#include <stack>
+#include <cctype>
+#include <cstdlib>
 
 Sliding_Solver::Sliding_Solver(const std::string& pInitConfig,
                                const std::string& pGoalConfig)
@@ -61,3 +64,91 @@ void Sliding_Solver::Solve_Puzzle()
     std::cout << "Solution:\t" << finalBoard.getMovesFromStart() << std::endl;
     std::cout << "Moves:\t\t" << finalBoard.numMoves() << std::endl;
 }
+
+bool Sliding_Solver::validateConfig(const std::string& config)
+{
+    // check if the string is exactly 8 characters long
+    if (config.length() != 9) {
+        std::cout << "Should be exactly 9 characters long." << std::endl;
+        return false;
+    }
+
+
+    // check if every character is only 0-8
+
+    // check if it contains a 0 or if
+    // there's a invalid character
+    bool proceed = false;
+    for (char c : config) {
+        if (c == '0') {
+            proceed = true;
+        }
+        int f = c - '0';
+        if ( !isdigit(c) || f > 8 ) {
+            //std::cout << (int)c << std::endl;
+            //std::cout << f << std::endl;
+            std::cout << "Invalid string." << std::endl;
+            return false;
+        }
+    }
+
+    if (!proceed) {
+        std::cout << "No '0' found." << std::endl;
+        return false;
+    }
+
+
+    // check for duplicates
+    std::stack<char> tempStack;
+    for (char c : config)
+        tempStack.push(c);
+
+    while(!tempStack.empty())
+    {
+        char t = tempStack.top();
+        int counter = 0;
+
+        for (char c : config)
+        {
+            if (c == t)
+                counter++;
+        }
+
+        if (counter != 1) {
+            std::cout << "There's a duplicate character." << std::endl;
+            return false;
+        }
+
+
+        tempStack.pop();
+    }
+
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
