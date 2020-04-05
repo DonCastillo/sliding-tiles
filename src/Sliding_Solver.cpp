@@ -3,6 +3,7 @@
 #include <stack>
 #include <cctype>
 #include <cstdlib>
+#include <iomanip>
 
 Sliding_Solver::Sliding_Solver(const std::string& pInitConfig,
                                const std::string& pGoalConfig)
@@ -59,10 +60,17 @@ void Sliding_Solver::Solve_Puzzle()
         tileQueue.makeEmpty();
     }
 
-    std::cout << "-------------" << std::endl;
-    std::cout << "Config:\t\t" << finalBoard.getConfig() << std::endl;
-    std::cout << "Solution:\t" << finalBoard.getMovesFromStart() << std::endl;
-    std::cout << "Moves:\t\t" << finalBoard.numMoves() << std::endl;
+    std::cout << std::endl;
+    std::cout << std::left << std::setw(20) << "Start Board"
+                           << std::setw(20) << "Goal Board"
+                           << std::setw(20) << "Number of Moves"
+                           << std::setw(20) << "Solution"
+                           << std::setw(20) << std::endl;
+    std::cout << std::left << std::setw(20) << initBoard.getConfig()
+                           << std::setw(20) << goalBoard.getConfig()
+                           << std::setw(20) << finalBoard.numMoves()
+                           << std::setw(20) << finalBoard.getMovesFromStart()
+                           << std::setw(20) << std::endl;
 }
 
 bool Sliding_Solver::validateConfig(const std::string& config)
@@ -74,7 +82,8 @@ bool Sliding_Solver::validateConfig(const std::string& config)
     }
 
 
-    // check if every character is only 0-8
+    // check if every character is valid
+    // valid charactes 1,2,3,4,5,6,7,8,0
 
     // check if it contains a 0 or if
     // there's a invalid character
@@ -87,7 +96,7 @@ bool Sliding_Solver::validateConfig(const std::string& config)
         if ( !isdigit(c) || f > 8 ) {
             //std::cout << (int)c << std::endl;
             //std::cout << f << std::endl;
-            std::cout << "Invalid string." << std::endl;
+            std::cout << "There's an invalid character." << std::endl;
             return false;
         }
     }
@@ -118,7 +127,6 @@ bool Sliding_Solver::validateConfig(const std::string& config)
             std::cout << "There's a duplicate character." << std::endl;
             return false;
         }
-
 
         tempStack.pop();
     }
