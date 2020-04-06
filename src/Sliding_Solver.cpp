@@ -1,9 +1,4 @@
 #include "Sliding_Solver.h"
-#include <string>
-#include <stack>
-#include <cctype>
-#include <cstdlib>
-#include <iomanip>
 
 Sliding_Solver::Sliding_Solver(const std::string& pInitConfig,
                                const std::string& pGoalConfig)
@@ -112,8 +107,6 @@ bool Sliding_Solver::validateConfig(const std::string& config)
         }
         int f = c - '0';
         if ( !isdigit(c) || f > 8 ) {
-            //std::cout << (int)c << std::endl;
-            //std::cout << f << std::endl;
             std::cout << "There's an invalid character." << std::endl;
             return false;
         }

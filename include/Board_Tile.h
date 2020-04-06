@@ -1,7 +1,7 @@
 
 /** @author Don Castillo
  *  @brief  Header of the Board_Tile class
- *
+ *  @date   06/04/2020
  */
 
 #ifndef BOARD_TILE_H

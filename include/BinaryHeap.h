@@ -1,3 +1,9 @@
+/** @author Mark Allen Weiss
+ *  @ref    https://users.cs.fiu.edu/~weiss/dsaa_c++4/code/BinaryHeap.h
+ *  @brief  Binary Heap implementation
+ *
+ */
+
 #ifndef BINARY_HEAP_H
 #define BINARY_HEAP_H
 

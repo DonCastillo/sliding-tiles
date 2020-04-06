@@ -1,6 +1,7 @@
 
 /** @author Don Castillo
  *  @brief  Header of the Board_Tile class
+ *  @date   06/04/2020
  *
  */
 
@@ -9,6 +10,10 @@
 #include "BinaryHeap.h"
 #include "Board_Tile.h"
 #include <string>
+#include <stack>
+#include <cctype>
+#include <cstdlib>
+#include <iomanip>
 
 class Sliding_Solver
 {
@@ -28,8 +33,17 @@ class Sliding_Solver
          */
         Sliding_Solver(const std::string& pInitConfig,
                        const std::string& pGoalConfig);
+
         virtual ~Sliding_Solver();
+
+        /** @brief  solves the puzzle using A* search
+         *          prints the solution table
+         */
         void Solve_Puzzle();
+
+        /** @brief  validates string configuration
+         *  @param  config  string configuration
+         */
         static bool validateConfig(const std::string& config);
 };
 
