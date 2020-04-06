@@ -10,15 +10,20 @@ int main()
 
     bool loop = false;
 
+    std::cout << "SLIDING TILES by Don Castillo\nTerm Project in CPSC 3620: Data Structures and Algorithm\n\n";
+    std::cout << "Enter two nine-character long string of digits (from 0 through 8)\n"
+              << "representing the 3x3 row-oriented layout of the initial and goal board\n"
+              << "configurations of the sliding puzzle. The '0' character represents a blank tile\n\n";
+
     do{
         do{
-            std::cout << "Enter a 3x3 start board configuration: ";
+            std::cout << "Enter the start board configuration: ";
             std::getline(cin, initConfig);
         }while( !Sliding_Solver::validateConfig(initConfig) );
 
 
         do{
-            std::cout << "Enter a 3x3 goal board configuration: ";
+            std::cout << "Enter the goal board configuration: ";
             std::getline(cin, goalConfig);
         }while( !Sliding_Solver::validateConfig(goalConfig) );
 
