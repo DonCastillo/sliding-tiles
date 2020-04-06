@@ -145,29 +145,3 @@ bool Sliding_Solver::validateConfig(const std::string& config)
     return true;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

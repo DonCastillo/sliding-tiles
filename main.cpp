@@ -43,8 +43,5 @@ int main()
 
     }while(loop);
 
-
-
-
     return 0;
 }
