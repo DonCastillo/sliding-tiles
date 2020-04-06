@@ -12,9 +12,10 @@ PROGRAM = sliding-tiles
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 
-.PHONY: clean-all
-clean-all: clean
-	rm -rf *.o $(PROGRAM) *~
-
-$(PROGRAM): $(SRC_DIR)/*.cpp
+$(PROGRAM): $(SRC_DIR)/*.cpp main.cpp
 	$(CXX) $(CXXFLAGS) -o $(PROGRAM) -I $(SRC_INCLUDE) $(SRC_DIR)/*.cpp main.cpp
+
+	
+.PHONY: clean
+clean:
+	rm -rf *~ $(SRC_DIR)/*.o $(PROGRAM)
